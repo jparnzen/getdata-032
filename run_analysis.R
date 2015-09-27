@@ -29,11 +29,12 @@ run_analysis <- function() {
     setnames(step1, c("SubjectID", features$Feature, "ActivityID"))
     
     step2 <- extractMeansAndStds(step1)
-    
     step3 <- addDescriptiveActivityNames(step2, activities)
     step4 <- tidyFeatures(step3)
     step5 <- leGrandeAverages(step4)
-    step5
+    
+    ## step5 is a grouped_dt, so convert it to a dataframe for full display
+    as.data.frame(step5)
 }
 
 # ---------------------------------------------------------------------------- #
